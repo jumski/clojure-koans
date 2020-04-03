@@ -13,12 +13,10 @@
     ~(nth form 2)))
 
 (defmacro recursive-infix [form]
-  (print "form = " form "\n")
   (cond (not (seq? form))
         form
         (= 1 (count form))
         (do
-          ; (println "xxx" form)
         `(recursive-infix ~(first form)))
         :else
         (let [operator (second form)
